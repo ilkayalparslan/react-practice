@@ -3,14 +3,23 @@ import TodoItem from './TodoItem'
 
 function TodoList() {
   const todos = useStore((state) => state.todos)
+  const filter = useStore((state) => state.filter)
 
-  if (todos.length === 0) {
-    return <p>No Todos Yet. Add one above!</p>
+  const filteredTodos =
+    filter === 'active'
+      ? todos.filter((x) => !x.completed)
+      : filter === 'completed'
+        ? todos.filter((x) => x.completed)
+        : todos
+
+  if (filteredTodos.length === 0) {
+    return <p>No Todos to Show!</p>
   }
+
   return (
     <ul>
-      {todos.map((x) => (
-        <TodoItem key={x.id} todo={x} />
+      {filteredTodos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   )

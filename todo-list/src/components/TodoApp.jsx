@@ -1,4 +1,5 @@
 import TodoForm from './TodoForm'
+import TodoFilter from './TodoFilter'
 import TodoList from './TodoList'
 
 function TodoApp() {
@@ -6,6 +7,7 @@ function TodoApp() {
     <div>
       <h1>Todo List</h1>
       <TodoForm />
+      <TodoFilter />
       <TodoList />
     </div>
   )
