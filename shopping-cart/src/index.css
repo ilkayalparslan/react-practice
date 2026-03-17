@@ -221,3 +221,8 @@ body {
   font-weight: bold;
   color: #e94560;
 }
+@media (max-width: 768px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+}
