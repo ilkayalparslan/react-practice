@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.converter-container {
+  width: 400px;
+}
+
+.converter-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.input-label {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.amount-input {
+  padding: 12px 14px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #16213e;
+  color: #eee;
+  font-size: 1.2rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.amount-input-focus {
+  border-color: #e94560;
+}
+
+.currency-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.currency-select {
+  padding: 12px 14px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background: #16213e;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 2s;
+}
+
+.currency-select:focus {
+  border-color: #e94560;
+}
+
+.swap-btn {
+  padding: 10px 14px;
+  background: transparent;
+  color: #e94560;
+  border: 2px solid #e94560;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.swap-btn:hover {
+  background-color: #e94560;
+  color: #fff;
+}
+
+.convert-btn {
+  padding: 14px;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.convert-btn:hover {
+  background: #c73650;
+}
+
+.result-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.result-text.loading {
+  color: #e94560;
+}
+
+.result-text.error {
+  color: #ff6b6b;
+}
+
+.result-text.placeholder {
+  color: #666;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: #16213e;
+  border: 2px solid #333;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.result-from {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.result-to {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e94560;
+}
