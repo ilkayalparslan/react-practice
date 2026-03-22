@@ -1,4 +1,4 @@
-echo "# React Practice
+# React Practice
 
 React + Zustand mini projects for learning.
 
@@ -18,4 +18,4 @@ React + Zustand mini projects for learning.
 ## Tech Stack
 
 - React + Vite
-- Zustand (state management)" > README.md
+- Zustand (state management)
