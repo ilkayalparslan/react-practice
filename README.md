@@ -14,6 +14,7 @@ React + Zustand mini projects for learning.
 | Weather App        | API + conditional rendering    |
 | Filter App         | Search, category filter, sort  |
 | Expense Tracker    | localStorage, derived state    |
+| Quiz App           | Timer, score, state machine    |
 
 ## Tech Stack
 
