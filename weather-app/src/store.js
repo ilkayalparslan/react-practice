@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const API_KEY = '6b2fd9175e31d0a49e6796a4a42a1b7f'
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
 const useStore = create((set, get) => ({
   // states
