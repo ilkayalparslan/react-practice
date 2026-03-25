@@ -1,7 +1,7 @@
 import useStore from '../store';
 
 function SessionCounter() {
-  const completedSessions = useStore((state) => state.completedSessions);
+  const completedSession = useStore((state) => state.completedSession);
   const sessionsBeforeLongBreak = useStore(
     (state) => state.sessionsBeforeLongBreak,
   );
@@ -12,11 +12,11 @@ function SessionCounter() {
         {Array.from({ length: sessionsBeforeLongBreak }, (_, i) => (
           <span
             key={i}
-            className={`session-dot ${i < completedSessions % sessionsBeforeLongBreak ? 'completed' : ''}`}
+            className={`session-dot ${i < completedSession % sessionsBeforeLongBreak ? 'completed' : ''}`}
           ></span>
         ))}
       </div>
-      <p className='session-text'>{completedSessions} sessions completed</p>
+      <p className='session-text'>{completedSession} sessions completed</p>
     </div>
   );
 }

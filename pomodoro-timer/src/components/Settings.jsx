@@ -6,14 +6,14 @@ function Settings() {
   const workDuration = useStore((state) => state.workDuration);
   const breakDuration = useStore((state) => state.breakDuration);
   const longBreakDuration = useStore((state) => state.longBreakDuration);
-  const updateSettings = useStore((state) => state.updateSettings);
+  const updateSetting = useStore((state) => state.updateSetting);
 
   const [work, setWork] = useState(workDuration);
   const [brk, setBrk] = useState(breakDuration);
   const [longBrk, setLongBrk] = useState(longBreakDuration);
 
   const handleSave = () => {
-    updateSettings({
+    updateSetting({
       workDuration: Number(work),
       breakDuration: Number(brk),
       longBreakDuration: Number(longBrk),
@@ -37,7 +37,7 @@ function Settings() {
         <label className='settings-label'>Focus (min)</label>
         <input
           type='number'
-          className='setting-input'
+          className='settings-input'
           value={work}
           onChange={(e) => setWork(e.target.value)}
           min='1'

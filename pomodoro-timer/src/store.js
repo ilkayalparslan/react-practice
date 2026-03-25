@@ -17,7 +17,7 @@ const useStore = create((set, get) => ({
   updateSetting: (settings) => {
     const { mode } = get();
     const newTime =
-      mode == 'word'
+      mode === 'work'
         ? settings.workDuration * 60
         : mode === 'break'
           ? settings.breakDuration * 60

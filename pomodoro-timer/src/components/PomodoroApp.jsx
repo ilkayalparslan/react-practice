@@ -11,7 +11,7 @@ function PomodoroApp() {
   }, []);
   return (
     <div className='pomodoro-container'>
-      <h1 className='pomodora-title'>Pomodoro Timer</h1>
+      <h1 className='pomodoro-title'>Pomodoro Timer</h1>
       <Timer />
       <SessionCounter />
       <Settings />
