@@ -1,0 +1,379 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fafaf9;
+  color: #1c1917;
+  min-height: 100vh;
+}
+
+/* Layout */
+.notes-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100vh;
+}
+
+/* Left Panel */
+.notes-left {
+  background: #f5f5f4;
+  border-right: 1px solid #e7e5e4;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.notes-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+/* Search & Filter */
+.search-filter {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+  background: white;
+  font-size: 0.9rem;
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #f97316;
+}
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-filter-btn {
+  padding: 4px 10px;
+  border: 1px solid #d6d3d1;
+  border-radius: 20px;
+  background: white;
+  color: #78716c;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tag-filter-btn:hover {
+  border-color: #f97316;
+}
+
+.tag-filter-btn.active {
+  background: #f97316;
+  color: white;
+  border-color: #f97316;
+}
+
+/* New Note Button */
+.new-note-btn {
+  width: 100%;
+  padding: 10px;
+  background: #f97316;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+}
+
+.new-note-btn:hover {
+  background: #ea580c;
+}
+
+/* Notes List */
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.no-notes {
+  color: #a8a29e;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+.note-item {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border: 1px solid transparent;
+}
+
+.note-item:hover {
+  background: #e7e5e4;
+}
+
+.note-item.active {
+  background: white;
+  border-color: #f97316;
+}
+
+.note-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.note-item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-delete-btn {
+  background: none;
+  border: none;
+  color: #a8a29e;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 4px;
+  transition: color 0.2s;
+}
+
+.note-delete-btn:hover {
+  color: #ef4444;
+}
+
+.note-item-preview {
+  font-size: 0.78rem;
+  color: #78716c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-tags {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.note-tag-small {
+  padding: 2px 6px;
+  background: #fed7aa;
+  color: #9a3412;
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
+/* Editor */
+.note-editor {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.note-editor.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a8a29e;
+  font-size: 1.1rem;
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.editor-title {
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1c1917;
+}
+
+.preview-btn {
+  padding: 6px 16px;
+  border: 1px solid #d6d3d1;
+  border-radius: 6px;
+  background: white;
+  color: #78716c;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preview-btn.active {
+  background: #f97316;
+  color: white;
+  border-color: #f97316;
+}
+
+/* Tags in editor */
+.editor-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.note-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #fed7aa;
+  color: #9a3412;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  color: #9a3412;
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.tag-form {
+  display: inline;
+}
+
+.tag-input {
+  padding: 4px 8px;
+  border: 1px dashed #d6d3d1;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  outline: none;
+  width: 80px;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.tag-input:focus {
+  border-color: #f97316;
+}
+
+/* Content */
+.editor-content {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  resize: none;
+  outline: none;
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.editor-content:focus {
+  border-color: #f97316;
+}
+
+.editor-preview {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  background: white;
+  overflow-y: auto;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.editor-preview h1 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+.editor-preview h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.editor-preview h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+.editor-preview p {
+  margin-bottom: 10px;
+}
+.editor-preview ul,
+.editor-preview ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.editor-preview code {
+  background: #f5f5f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+.editor-preview pre {
+  background: #1c1917;
+  color: #fafaf9;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+.editor-preview pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+.editor-preview blockquote {
+  border-left: 3px solid #f97316;
+  padding-left: 12px;
+  color: #78716c;
+  margin-bottom: 10px;
+}
+
+.editor-date {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #a8a29e;
+}
+
+@media (max-width: 768px) {
+  .notes-container {
+    grid-template-columns: 1fr;
+  }
+}
