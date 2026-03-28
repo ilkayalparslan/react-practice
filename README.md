@@ -18,6 +18,7 @@ React + Zustand mini projects for learning.
 | Movie Search       | TMDB API, pagination, debounce         |
 | Touch Slider       | Touch/mouse events, CSS transforms     |
 | Pomodoro Timer     | Intervals, SVG progress, notifications |
+| Notes App          | Markdown, localStorage, tags           |
 
 ## Tech Stack
 
