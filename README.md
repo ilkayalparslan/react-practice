@@ -19,6 +19,7 @@ React + Zustand mini projects for learning.
 | Touch Slider       | Touch/mouse events, CSS transforms     |
 | Pomodoro Timer     | Intervals, SVG progress, notifications |
 | Notes App          | Markdown, localStorage, tags           |
+| Router App         | React Router, dynamic routes, 404      |
 
 ## Tech Stack
 
