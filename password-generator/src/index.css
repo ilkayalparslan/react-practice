@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0c0c0c;
+  color: #e4e4e7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  overflow-y: auto;
+}
+
+.generator-container {
+  width: 440px;
+}
+
+.generator-title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 28px;
+}
+
+/* Password Display */
+.password-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+
+.password-text {
+  flex: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  word-break: break-all;
+  color: #22d3ee;
+}
+
+.copy-btn {
+  padding: 8px 16px;
+  background: #22d3ee;
+  color: #0c0c0c;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  background: #06b6d4;
+}
+
+.copy-btn.copied {
+  background: #22c55e;
+}
+
+/* Strength Bar */
+.strength-bar {
+  height: 4px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition:
+    width 0.4s,
+    background 0.4s;
+}
+
+.strength-fill.weak {
+  background: #ef4444;
+}
+.strength-fill.medium {
+  background: #f59e0b;
+}
+.strength-fill.strong {
+  background: #22c55e;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.strength-label.weak {
+  color: #ef4444;
+}
+.strength-label.medium {
+  color: #f59e0b;
+}
+.strength-label.strong {
+  color: #22c55e;
+}
+
+/* Settings */
+.setting-group {
+  margin-bottom: 20px;
+}
+
+.setting-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.setting-label {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+}
+
+.setting-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #22d3ee;
+}
+
+.length-slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: #2a2a2a;
+  border-radius: 3px;
+  outline: none;
+}
+
+.length-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #22d3ee;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.length-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Options */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.option:hover {
+  border-color: #3a3a3a;
+}
+
+.option input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22d3ee;
+  cursor: pointer;
+}
+
+.option-label {
+  font-size: 0.82rem;
+  color: #a1a1aa;
+}
+
+/* Generate Button */
+.generate-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  color: #0c0c0c;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-bottom: 28px;
+}
+
+.generate-btn:hover {
+  opacity: 0.9;
+}
+
+/* History */
+.history {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 20px;
+}
+
+.history-title {
+  font-size: 0.85rem;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.history-password {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  letter-spacing: 1px;
+}
+
+.history-copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.history-copy:hover {
+  opacity: 1;
+}
+
+.history-copied {
+  font-size: 0.75rem;
+  color: #22c55e;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
