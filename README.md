@@ -20,6 +20,7 @@ React + Zustand mini projects for learning.
 | Pomodoro Timer     | Intervals, SVG progress, notifications |
 | Notes App          | Markdown, localStorage, tags           |
 | Router App         | React Router, dynamic routes, 404      |
+| Travel App         | UI-first, filters, favorites           |
 
 ## Tech Stack
 
