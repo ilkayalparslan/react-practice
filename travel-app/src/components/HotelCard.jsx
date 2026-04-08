@@ -9,7 +9,12 @@ function HotelCard({ hotel }) {
       <div className='card-image-wrapper'>
         <img className='card-image' src={hotel.image} alt={hotel.name} />
         {hotel.featured && <span className='featured-badge'>Featured</span>}
-        <button className={`favorite-btn ${isFavorite ? 'active' : ''}`}>
+        <button
+          className={`favorite-btn ${isFavorite ? 'active' : ''}`}
+          onClick={() => {
+            toggleFavorite(hotel.id);
+          }}
+        >
           {isFavorite ? '♥' : '♡'}
         </button>
       </div>
