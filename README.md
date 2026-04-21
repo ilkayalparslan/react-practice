@@ -21,6 +21,7 @@ React + Zustand mini projects for learning.
 | Notes App          | Markdown, localStorage, tags           |
 | Router App         | React Router, dynamic routes, 404      |
 | Travel App         | UI-first, filters, favorites           |
+| Password Generator | Clipboard API, strength calc, history  |
 
 ## Tech Stack
 
