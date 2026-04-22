@@ -22,6 +22,8 @@ React + Zustand mini projects for learning.
 | Router App         | React Router, dynamic routes, 404      |
 | Travel App         | UI-first, filters, favorites           |
 | Password Generator | Clipboard API, strength calc, history  |
+| Kanban Board       | Drag & drop, multi-column state        |
+| Digital Clock      | useEffect, setInterval, Date           |
 
 ## Tech Stack
 
