@@ -8,6 +8,7 @@ function App() {
   const colors = useStore((state) => state.colors);
   const generatePalette = useStore((state) => state.generatePalette);
   const deletePalette = useStore((state) => state.deletePalette);
+  const notification = useStore((state) => state.notification);
 
   return (
     <div className="app">
@@ -20,6 +21,7 @@ function App() {
           💾 Save Palette
         </button>
       </div>
+      {notification && <p className="notification">{notification}</p>}
 
       <div className="palette">
         {colors.map((hex) => (

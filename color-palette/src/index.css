@@ -241,6 +241,25 @@ body {
   color: white;
 }
 
+.notification {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #22c55e;
+  margin-bottom: 16px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 600px) {
   .palette {
     height: 400px;
