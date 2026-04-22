@@ -26,6 +26,7 @@ React + Zustand mini projects for learning.
 | Digital Clock      | useEffect, setInterval, Date           |
 | Kanban Board       | Drag & drop, multi-column state        |
 | GitHub Viewer      | GitHub API, dynamic rendering          |
+| Contact Manager    | Full CRUD, edit mode, localStorage     |
 
 ## Tech Stack
 
