@@ -1,0 +1,133 @@
+.hero {
+  height: 550px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400")
+      center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-family: "PlayFair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+/* booking bar */
+.booking-bar {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  align-items: flex-end;
+}
+
+.booking-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.booking-label {
+  font-size: 0.7rem;
+  color: #78716c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.booking-input {
+  padding: 10px 14px;
+  border: 1px solid #d6d3d1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1c1917;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.booking-input:focus {
+  border-color: #b45309;
+}
+
+.booking-search-btn {
+  padding: 10px 24px;
+  background: #b45309;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.booking-search-btn:hover {
+  background: #92400e;
+}
+
+/* sections */
+.featured-section,
+.about-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section-title {
+  font-family: "PlayFair Display", serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1c1917;
+}
+
+.section-cta {
+  text-align: center;
+}
+
+.view-all-btn {
+  color: #b45309;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+
+.view-all-btn:hover {
+  opacity: 0.7;
+}
+
+/* about */
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  color: #57534e;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}

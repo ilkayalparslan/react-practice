@@ -23,6 +23,9 @@ React + Zustand mini projects for learning.
 | Travel App         | UI-first, filters, favorites           |
 | Password Generator | Clipboard API, strength calc, history  |
 | Color Palette      | Random colors, clipboard, save/delete  |
+| GitHub Viewer      | GitHub API, dynamic rendering          |
+| Kanban Board       | Drag & drop, multi-column state        |
+| Digital Clock      | useEffect, setInterval, Date           |
 
 ## Tech Stack
 
