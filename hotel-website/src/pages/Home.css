@@ -2,7 +2,7 @@
   height: 550px;
   background:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400")
+    url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400')
       center/cover;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@
 }
 
 .hero-title {
-  font-family: "PlayFair Display", serif;
+  font-family: 'PlayFair Display', serif;
   font-size: 3rem;
   margin-bottom: 12px;
 }
@@ -37,6 +37,7 @@
   border-radius: 12px;
   backdrop-filter: blur(8px);
   align-items: flex-end;
+  margin-top: 300px;
 }
 
 .booking-field {
@@ -93,7 +94,7 @@
 }
 
 .section-title {
-  font-family: "PlayFair Display", serif;
+  font-family: 'PlayFair Display', serif;
   font-size: 2rem;
   text-align: center;
   margin-bottom: 30px;

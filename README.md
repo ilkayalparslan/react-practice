@@ -27,6 +27,7 @@ React + Zustand mini projects for learning.
 | Kanban Board       | Drag & drop, multi-column state        |
 | GitHub Viewer      | GitHub API, dynamic rendering          |
 | Contact Manager    | Full CRUD, edit mode, localStorage     |
+| Hotel Website      | Multi-page, booking flow, room filter  |
 
 ## Tech Stack
 
