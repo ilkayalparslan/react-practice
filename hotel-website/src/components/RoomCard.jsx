@@ -1,6 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import useStore from '../store';
 import './RoomCard.css';
 
 function RoomCard({ room, nights }) {
+  const navigate = useNavigate();
+  const setSelectedRoom = useStore((state) => state.setSelectedRoom);
+
+  const handleBookNow = () => {
+    setSelectedRoom(room);
+    navigate('/reservation');
+  };
   return (
     <div className='room-card'>
       <img src={room.image} alt={room.name} className='room-image' />
@@ -27,7 +36,9 @@ function RoomCard({ room, nights }) {
               <p className='total-price'>Total : ${room.price * nights}</p>
             )}
           </div>
-          <button className='book-btn'>Book Now</button>
+          <button onClick={handleBookNow} className='book-btn'>
+            Book Now
+          </button>
         </div>
       </div>
     </div>
