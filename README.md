@@ -28,6 +28,7 @@ React + Zustand mini projects for learning.
 | GitHub Viewer      | GitHub API, dynamic rendering          |
 | Contact Manager    | Full CRUD, edit mode, localStorage     |
 | Hotel Website      | Multi-page, booking flow, room filter  |
+| Image Gallery      | Lightbox, filter, keyboard navigation  |
 
 ## Tech Stack
 
