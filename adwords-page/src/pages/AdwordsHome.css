@@ -1,0 +1,158 @@
+/* Hero */
+.ad-hero {
+  text-align: center;
+  padding: 100px 20px 80px;
+  background: linear-gradient(135deg, #1a73e8 0%, #4285f4 50%, #669df6 100%);
+  color: white;
+}
+
+.ad-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.ad-hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+.ad-hero-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: white;
+  color: #1a73e8;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.ad-hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Benefits */
+.benefits-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.benefit-card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.benefit-image {
+  flex: 0 0 45%;
+}
+
+.benefit-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.benefit-content {
+  flex: 1;
+  padding: 32px;
+}
+
+.benefit-headline {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.benefit-desc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA */
+.ad-cta {
+  text-align: center;
+  padding: 80px 20px;
+  margin: 0 -20px;
+  background: #f0f0f0;
+  border-radius: 0;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.cta-subtitle {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: #1a73e8;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.cta-btn:hover {
+  background: #1557b0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .ad-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .benefit-card {
+    flex-direction: column !important;
+  }
+
+  .benefit-image {
+    flex: none;
+    width: 100%;
+  }
+}

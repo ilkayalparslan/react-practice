@@ -1,0 +1,142 @@
+.packages-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.packages-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.packages-subtitle {
+  color: #666;
+  font-size: 1.05rem;
+  margin-bottom: 48px;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* Price Card */
+.price-card {
+  background: white;
+  border: 2px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  min-height: 480px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.price-card.popular {
+  border-color: #4285f4;
+  box-shadow: 0 8px 24px rgba(66, 133, 244, 0.15);
+  transform: scale(1.05);
+}
+
+.price-card.popular:hover {
+  transform: scale(1.05) translateY(-4px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4285f4;
+  color: white;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.price-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.price-amount {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+.price-amount span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #999;
+}
+
+.price-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.price-feature {
+  padding: 8px 0;
+  font-size: 0.9rem;
+  color: #444;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.price-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  color: #4285f4;
+  border: 2px solid #4285f4;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.price-btn:hover {
+  background: #4285f4;
+  color: white;
+}
+
+.popular .price-btn {
+  background: #4285f4;
+  color: white;
+}
+
+.popular .price-btn:hover {
+  background: #1557b0;
+  border-color: #1557b0;
+}
+
+@media (max-width: 768px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .price-card.popular {
+    transform: none;
+  }
+}
