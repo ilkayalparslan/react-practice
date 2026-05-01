@@ -30,6 +30,7 @@ React + Zustand mini projects for learning.
 | Hotel Website      | Multi-page, booking flow, room filter    |
 | Image Gallery      | Lightbox, filter, keyboard navigation    |
 | Adwords Page       | Nested routes, animations, pricing cards |
+| UI Components      | Accordion FAQ, testimonial slider        |
 
 ## Tech Stack
 
