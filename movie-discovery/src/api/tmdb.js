@@ -24,3 +24,11 @@ export function fetchTrending() {
 export function fetchMovieDetails(id) {
   return tmdbFetch(`/movie/${id}`);
 }
+
+export function searchMovies(query, params = {}) {
+  return tmdbFetch('/search/movie', { query, ...params });
+}
+
+export function fetchGenres() {
+  return tmdbFetch('/genre/movie/list');
+}
