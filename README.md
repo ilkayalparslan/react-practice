@@ -31,6 +31,7 @@ React + Zustand mini projects for learning.
 | Image Gallery      | Lightbox, filter, keyboard navigation    |
 | Adwords Page       | Nested routes, animations, pricing cards |
 | UI Components      | Accordion FAQ, testimonial slider        |
+| Infinite Scroll    | IntersectionObserver, lazy loading       |
 
 ## Tech Stack
 
