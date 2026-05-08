@@ -1,41 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/Search.css';
 import '../css/Home.css';
+import useMoviesStore from '../stores/moviesStore';
 
-const fakeResults = [
-  {
-    id: 1,
-    title: 'Batman Begins',
-    year: 2005,
-    rating: 8.2,
-    poster: 'https://image.tmdb.org/t/p/w500/4MpN4kIEqUjW8OPtOQJXlTdHiJV.jpg',
-  },
-  {
-    id: 2,
-    title: 'The Dark Knight',
-    year: 2008,
-    rating: 9.0,
-    poster: 'https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
-  },
-  {
-    id: 3,
-    title: 'The Dark Knight Rises',
-    year: 2012,
-    rating: 8.4,
-    poster: 'https://image.tmdb.org/t/p/w500/hr0L2aueqlP2BYUblTTjmtn0hw4.jpg',
-  },
-];
-
-const fakeGenres = [
-  { id: 28, name: 'Action' },
-  { id: 12, name: 'Adventure' },
-  { id: 35, name: 'Comedy' },
-  { id: 18, name: 'Drama' },
-];
+const IMG_BASE = import.meta.env.VITE_TMDB_IMG_BASE;
 
 function Search() {
   const [query, setQuery] = useState('');
   const [genre, setGenre] = useState('');
+
+  const navigate = useNavigate();
+
+  const searchResults = useMoviesStore((state) => state.searchResults);
+  const searchStatus = useMoviesStore((state) => state.searchStatus);
+  const searchError = useMoviesStore((state) => state.searchError);
+  const genres = useMoviesStore((state) => state.genres);
+  const loadSearch = useMoviesStore((state) => state.loadSearch);
+  const loadGenres = useMoviesStore((state) => state.loadGenres);
+
+  // Mount'ta bir kere genre listesini çek
+  useEffect(() => {
+    loadGenres();
+  }, [loadGenres]);
+
+  // Query her değiştiğinde 400ms bekle, sonra search'i tetikle
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      loadSearch(query);
+    }, 400);
+
+    return () => clearTimeout(timeoutId);
+  }, [query, loadSearch]);
+
   return (
     <div className='search-page'>
       <section className='search-hero'>
@@ -61,7 +58,7 @@ function Search() {
           onChange={(e) => setGenre(e.target.value)}
         >
           <option value=''>All genres</option>
-          {fakeGenres.map((x) => (
+          {genres.map((x) => (
             <option key={x.id} value={x.id}>
               {x.name}
             </option>
@@ -70,19 +67,50 @@ function Search() {
       </section>
 
       <section className='search-results'>
-        {query.length === 0 && (
+        {searchStatus === 'idle' && (
           <div className='state-message'>Start typing to search.</div>
         )}
-        {query.length > 0 && (
+        {searchStatus === 'loading' && (
+          <div className='state-message'>Searching...</div>
+        )}
+        {searchStatus === 'error' && (
+          <div className='state-message state-error'>
+            Something went wrong: {searchError}
+          </div>
+        )}
+
+        {searchStatus === 'success' && searchResults.length === 0 && (
+          <div className='state-message'>No films found for '{query}'.</div>
+        )}
+
+        {searchStatus === 'success' && searchResults.length > 0 && (
           <div className='movie-grid'>
-            {fakeResults.map((x) => (
-              <article key={x.id} className='movie-card'>
+            {searchResults.map((movie) => (
+              <article
+                key={movie.id}
+                className='movie-card'
+                onClick={() => navigate(`/movie/${movie.id}`)}
+              >
                 <div className='movie-poster-wrap'>
-                  <img src={x.poster} alt={x.title} className='movie-poster' />
-                  <span className='movie-rating'>★ {x.rating}</span>
+                  {movie.poster_path ? (
+                    <img
+                      src={`${IMG_BASE}${movie.poster_path}`}
+                      alt={movie.title}
+                      className='movie-poster'
+                    />
+                  ) : (
+                    <div className='movie-poster movie-poster-empty'>
+                      No Image
+                    </div>
+                  )}
+                  <span className='movie-rating'>
+                    ★ {movie.vote_average?.toFixed(1) ?? '-'}
+                  </span>
                 </div>
-                <h3 className='movie-title'>{x.title}</h3>
-                <p className='movie-year'>{x.year}</p>
+                <h3 className='movie-title'>{movie.title}</h3>
+                <p className='movie-year'>
+                  {movie.release_date?.slice(0, 4) || '-'}
+                </p>
               </article>
             ))}
           </div>
