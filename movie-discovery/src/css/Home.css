@@ -138,6 +138,12 @@
   color: #d93025;
 }
 
+.movie-fav-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 /* mobile */
 @media (max-width: 640px) {
   .home-title {

@@ -134,6 +134,18 @@
   max-width: 640px;
 }
 
+.detail-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.detail-title-row .detail-title {
+  flex: 1;
+  margin: 0;
+}
+
 /* mobile */
 @media (max-width: 720px) {
   .detail-backdrop {

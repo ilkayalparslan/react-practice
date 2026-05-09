@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
+import FavoriteButton from '../components/FavoriteButton';
 import '../css/Search.css';
 import '../css/Home.css';
 import useMoviesStore from '../stores/moviesStore';
@@ -113,6 +114,9 @@ function Search() {
                   <span className='movie-rating'>
                     ★ {movie.vote_average?.toFixed(1) ?? '-'}
                   </span>
+                  <div className='movie-fav-overlay'>
+                    <FavoriteButton movie={movie} size='small' />
+                  </div>
                 </div>
                 <h3 className='movie-title'>{movie.title}</h3>
                 <p className='movie-year'>

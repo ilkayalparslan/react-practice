@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useMoviesStore from '../stores/moviesStore';
+import FavoriteButton from '../components/FavoriteButton';
 import '../css/MovieDetail.css';
 
 const IMG_BASE = import.meta.env.VITE_TMDB_IMG_BASE;
@@ -55,7 +56,11 @@ export default function MovieDetail() {
           />
 
           <div className='detail-info'>
-            <h1 className='detail-title'>{movie.title}</h1>
+            <div className='detasil-title-row'>
+              <h1 className='detail-title'>{movie.title}</h1>
+              <FavoriteButton movie={movie} size='large' />
+            </div>
+
             {movie.tagline && <p className='detail-tagline'>{movie.tagline}</p>}
 
             <div className='detail-meta'>

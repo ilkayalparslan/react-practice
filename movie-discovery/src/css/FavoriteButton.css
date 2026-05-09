@@ -1,0 +1,46 @@
+.fav-btn {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f6368;
+  transition: all 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.fav-btn:hover {
+  transform: scale(1.1);
+  background: white;
+}
+
+.fav-btn-active {
+  color: #ea4335;
+}
+
+.fav-btn-active:hover {
+  color: #d33b2c;
+}
+
+/* sizes */
+.fav-btn-small {
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+}
+
+.fav-btn-medium {
+  width: 36px;
+  height: 36px;
+  font-size: 1.25rem;
+}
+
+.fav-btn-large {
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+}

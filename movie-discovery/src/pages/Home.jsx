@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useMoviesStore from '../stores/moviesStore';
+import FavoriteButton from '../components/FavoriteButton';
 import '../css/Home.css';
 
 const IMG_BASE = import.meta.env.VITE_TMDB_IMG_BASE;
@@ -61,6 +62,9 @@ function Home() {
                   <span className='movie-rating'>
                     ★ {movie.vote_average.toFixed(1)}
                   </span>
+                  <div className='movie-fav-overlay'>
+                    <FavoriteButton movie={movie} size='small' />
+                  </div>
                 </div>
                 <h3 className='movie-title'>{movie.title}</h3>
                 <p className='movie-year'>
