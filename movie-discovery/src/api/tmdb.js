@@ -32,3 +32,7 @@ export function searchMovies(query, params = {}) {
 export function fetchGenres() {
   return tmdbFetch('/genre/movie/list');
 }
+
+export function discoverMovies(filters = {}) {
+  return tmdbFetch('/discover/movie', filters);
+}

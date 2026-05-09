@@ -27,19 +27,19 @@ function Search() {
     loadGenres();
   }, [loadGenres]);
 
-  // Query her değiştiğinde 400ms bekle, sonra search'i tetikle
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      loadSearch(query);
+      const filters = {};
+      if (genre) filters.with_genres = genre;
+      loadSearch(query, filters);
 
       const newParams = {};
       if (query) newParams.q = query;
       if (genre) newParams.genre = genre;
       setSearchParams(newParams, { replace: true });
     }, 400);
-
     return () => clearTimeout(timeoutId);
-  }, [query, loadSearch, genre, setSearchParams]);
+  }, [query, genre, loadSearch, setSearchParams]);
 
   return (
     <div className='search-page'>

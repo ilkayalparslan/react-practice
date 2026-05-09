@@ -4,6 +4,7 @@ import {
   fetchTrending,
   searchMovies,
   fetchGenres,
+  discoverMovies,
 } from '../api/tmdb';
 
 const useMoviesStore = create((set, get) => ({
@@ -35,7 +36,7 @@ const useMoviesStore = create((set, get) => ({
     set((state) => ({
       details: {
         ...state.details,
-        [id]: { date: null, status: 'loading', error: null },
+        [id]: { data: null, status: 'loading', error: null },
       },
     }));
     try {
@@ -57,14 +58,27 @@ const useMoviesStore = create((set, get) => ({
   },
 
   loadSearch: async (query, filters = {}) => {
-    if (!query || query.trim().length === 0) {
+    if (!query && !filters.with_genres) {
       set({ searchResults: [], searchStatus: 'idle', searchError: null });
       return;
     }
 
     set({ searchStatus: 'loading', searchError: null });
+
     try {
-      const data = await searchMovies(query, filters);
+      let data;
+      if (query) {
+        data = await searchMovies(query);
+        if (filters.with_genres) {
+          const genreId = Number(filters.with_genres);
+          data = {
+            ...data,
+            results: data.results.filter((m) => m.genre_ids?.includes(genreId)),
+          };
+        }
+      } else {
+        data = await discoverMovies(filters);
+      }
       set({ searchResults: data.results, searchStatus: 'success' });
     } catch (err) {
       set({ searchStatus: 'error', searchError: err.message });
