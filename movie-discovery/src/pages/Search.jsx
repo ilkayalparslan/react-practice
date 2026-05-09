@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import '../css/Search.css';
 import '../css/Home.css';
 import useMoviesStore from '../stores/moviesStore';
@@ -7,8 +8,9 @@ import useMoviesStore from '../stores/moviesStore';
 const IMG_BASE = import.meta.env.VITE_TMDB_IMG_BASE;
 
 function Search() {
-  const [query, setQuery] = useState('');
-  const [genre, setGenre] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get('q') || '');
+  const [genre, setGenre] = useState(searchParams.get('genre') || '');
 
   const navigate = useNavigate();
 
@@ -28,10 +30,15 @@ function Search() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       loadSearch(query);
+
+      const newParams = {};
+      if (query) newParams.q = query;
+      if (genre) newParams.genre = genre;
+      setSearchParams(newParams, { replace: true });
     }, 400);
 
     return () => clearTimeout(timeoutId);
-  }, [query, loadSearch]);
+  }, [query, loadSearch, genre, setSearchParams]);
 
   return (
     <div className='search-page'>
