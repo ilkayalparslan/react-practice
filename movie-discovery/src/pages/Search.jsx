@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import FavoriteButton from '../components/FavoriteButton';
+import AnimatedSection from '../components/AnimatedSection';
 import '../css/Search.css';
 import '../css/Home.css';
 import useMoviesStore from '../stores/moviesStore';
@@ -93,36 +94,38 @@ function Search() {
 
         {searchStatus === 'success' && searchResults.length > 0 && (
           <div className='movie-grid'>
-            {searchResults.map((movie) => (
-              <article
-                key={movie.id}
-                className='movie-card'
-                onClick={() => navigate(`/movie/${movie.id}`)}
-              >
-                <div className='movie-poster-wrap'>
-                  {movie.poster_path ? (
-                    <img
-                      src={`${IMG_BASE}${movie.poster_path}`}
-                      alt={movie.title}
-                      className='movie-poster'
-                    />
-                  ) : (
-                    <div className='movie-poster movie-poster-empty'>
-                      No Image
+            {searchResults.map((movie, index) => (
+              <AnimatedSection key={movie.id} delay={index * 50}>
+                <article
+                  key={movie.id}
+                  className='movie-card'
+                  onClick={() => navigate(`/movie/${movie.id}`)}
+                >
+                  <div className='movie-poster-wrap'>
+                    {movie.poster_path ? (
+                      <img
+                        src={`${IMG_BASE}${movie.poster_path}`}
+                        alt={movie.title}
+                        className='movie-poster'
+                      />
+                    ) : (
+                      <div className='movie-poster movie-poster-empty'>
+                        No Image
+                      </div>
+                    )}
+                    <span className='movie-rating'>
+                      ★ {movie.vote_average?.toFixed(1) ?? '-'}
+                    </span>
+                    <div className='movie-fav-overlay'>
+                      <FavoriteButton movie={movie} size='small' />
                     </div>
-                  )}
-                  <span className='movie-rating'>
-                    ★ {movie.vote_average?.toFixed(1) ?? '-'}
-                  </span>
-                  <div className='movie-fav-overlay'>
-                    <FavoriteButton movie={movie} size='small' />
                   </div>
-                </div>
-                <h3 className='movie-title'>{movie.title}</h3>
-                <p className='movie-year'>
-                  {movie.release_date?.slice(0, 4) || '-'}
-                </p>
-              </article>
+                  <h3 className='movie-title'>{movie.title}</h3>
+                  <p className='movie-year'>
+                    {movie.release_date?.slice(0, 4) || '-'}
+                  </p>
+                </article>
+              </AnimatedSection>
             ))}
           </div>
         )}

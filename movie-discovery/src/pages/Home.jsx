@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useMoviesStore from '../stores/moviesStore';
 import FavoriteButton from '../components/FavoriteButton';
+import AnimatedSection from '../components/AnimatedSection';
 import '../css/Home.css';
 
 const IMG_BASE = import.meta.env.VITE_TMDB_IMG_BASE;
@@ -22,12 +23,14 @@ function Home() {
 
   return (
     <div className='home-page'>
-      <section className='home-hero'>
-        <h1 className='home-title'>Discover your next favorite film.</h1>
-        <p className='home-subtitle'>
-          Trending now, hand-picked classics, and everything in between.
-        </p>
-      </section>
+      <AnimatedSection>
+        <section className='home-hero'>
+          <h1 className='home-title'>Discover your next favorite film.</h1>
+          <p className='home-subtitle'>
+            Trending now, hand-picked classics, and everything in between.
+          </p>
+        </section>
+      </AnimatedSection>
 
       <section className='home-section'>
         <div className='section-header'>
@@ -47,30 +50,32 @@ function Home() {
 
         {status === 'success' && (
           <div className='movie-grid'>
-            {trending.map((movie) => (
-              <article
-                key={movie.id}
-                className='movie-card'
-                onClick={() => navigate(`/movie/${movie.id}`)}
-              >
-                <div className='movie-poster-wrap'>
-                  <img
-                    src={`${IMG_BASE}${movie.poster_path}`}
-                    alt={movie.title}
-                    className='movie-poster'
-                  />
-                  <span className='movie-rating'>
-                    ★ {movie.vote_average.toFixed(1)}
-                  </span>
-                  <div className='movie-fav-overlay'>
-                    <FavoriteButton movie={movie} size='small' />
+            {trending.map((movie, index) => (
+              <AnimatedSection key={movie.id} delay={index * 50}>
+                <article
+                  key={movie.id}
+                  className='movie-card'
+                  onClick={() => navigate(`/movie/${movie.id}`)}
+                >
+                  <div className='movie-poster-wrap'>
+                    <img
+                      src={`${IMG_BASE}${movie.poster_path}`}
+                      alt={movie.title}
+                      className='movie-poster'
+                    />
+                    <span className='movie-rating'>
+                      ★ {movie.vote_average.toFixed(1)}
+                    </span>
+                    <div className='movie-fav-overlay'>
+                      <FavoriteButton movie={movie} size='small' />
+                    </div>
                   </div>
-                </div>
-                <h3 className='movie-title'>{movie.title}</h3>
-                <p className='movie-year'>
-                  {movie.release_date?.slice(0, 4) || '—'}
-                </p>
-              </article>
+                  <h3 className='movie-title'>{movie.title}</h3>
+                  <p className='movie-year'>
+                    {movie.release_date?.slice(0, 4) || '—'}
+                  </p>
+                </article>
+              </AnimatedSection>
             ))}
           </div>
         )}
