@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { hotelInfo } from '../data/hotelInfo';
 import './Footer.css';
 
@@ -34,18 +35,18 @@ function Footer() {
         {/* navigation column */}
         <div className='footer-col'>
           <h4 className='footer-col-title'>Explore</h4>
-          <a href='/rooms' className='footer-link'>
+          <Link to='/rooms' className='footer-link'>
             Rooms
-          </a>
-          <a href='/about' className='footer-link'>
+          </Link>
+          <Link to='/about' className='footer-link'>
             About
-          </a>
-          <a href='/contact' className='footer-link'>
+          </Link>
+          <Link to='/contact' className='footer-link'>
             Contact
-          </a>
-          <a href='/manage' className='footer-link'>
+          </Link>
+          <Link to='/manage' className='footer-link'>
             Manage Booking
-          </a>
+          </Link>
         </div>
 
         {/* social column */}

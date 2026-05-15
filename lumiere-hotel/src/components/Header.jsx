@@ -1,33 +1,37 @@
 import { hotelInfo } from '../data/hotelInfo';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
+
+const navLinkClass = ({ isActive }) =>
+  isActive ? 'header-nav-link header-nav-link-active' : 'header-nav-link';
 
 function Header() {
   return (
     <header className='header'>
       <div className='container header-inner'>
         {/* === Logo / brand === */}
-        <a href='/' className='header-brand'>
+        <Link to='/' className='header-brand'>
           {hotelInfo.name}
-        </a>
+        </Link>
         {/* === Desktop nav === */}
         <nav className='header-nav'>
-          <a href='/rooms' className='header-nav-link'>
+          <NavLink to='/rooms' className={navLinkClass}>
             Rooms
-          </a>
-          <a href='/about' className='header-nav-link'>
+          </NavLink>
+          <NavLink to='/about' className={navLinkClass}>
             About
-          </a>
-          <a href='/contact' className='header-nav-link'>
+          </NavLink>
+          <NavLink to='/contact' className={navLinkClass}>
             Contact
-          </a>
-          <a href='/manage' className='header-nav-link'>
+          </NavLink>
+          <NavLink to='/manage' className={navLinkClass}>
             Manage Booking
-          </a>
+          </NavLink>
         </nav>
         {/* CTA  */}
-        <a href='/reservation' className='header-cta'>
+        <Link to='/reservation' className='header-cta'>
           Book Now
-        </a>
+        </Link>
       </div>
     </header>
   );

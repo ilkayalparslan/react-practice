@@ -35,6 +35,21 @@
   transition: color var(--transition-fast);
 }
 
+.header-nav-link-active {
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+.header-nav-link-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: var(--color-accent);
+}
+
 .header-nav-link:hover {
   color: var(--color-text-primary);
 }
