@@ -127,7 +127,7 @@ export const rooms = [
     bedType: 'King',
     pricePerNight: 280,
     currency: 'EUR',
-    featured: true,
+    featured: false,
     images: [
       'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1200',
       'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200',
