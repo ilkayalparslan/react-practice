@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './ImageCarousel.css';
 
 function ImageCarousel({ images, alt }) {
@@ -8,12 +8,24 @@ function ImageCarousel({ images, alt }) {
   const currentImage = images[currentIndex];
   const totalImages = images.length;
 
+  // preload all images on mount
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [images]);
+
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
+  };
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
   };
 
   return (
@@ -44,9 +56,21 @@ function ImageCarousel({ images, alt }) {
         ›
       </button>
 
-      {/* debug indicator (gecici) */}
-      <div className='image-carousel-debug'>
-        Image {currentIndex + 1} of {totalImages}
+      {/* dots indicator */}
+      <div className='image-carousel-dots'>
+        {images.map((_, index) => (
+          <button
+            key={index}
+            type='button'
+            onClick={() => handleDotClick(index)}
+            className={
+              index === currentIndex
+                ? 'image-carousel-dot image-carousel-dot-active'
+                : 'image-carousel-dot'
+            }
+            aria-label={`Go to image ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
