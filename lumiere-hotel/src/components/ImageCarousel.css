@@ -1,0 +1,76 @@
+.image-carousel {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.image-carousel-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  transition: opacity var(--transition-base);
+}
+
+/* debug indicator gecici */
+.image-carousel-debug {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--color-bg);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* btns */
+.image-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-primary);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.image-carousel-btn:hover {
+  background: var(--color-bg);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.image-carousel-btn-prev {
+  left: var(--space-4);
+}
+
+.image-carousel-btn-next {
+  right: var(--space-4);
+}
+
+@media (max-width: 640px) {
+  .image-carousel-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .image-carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-xl);
+  }
+}
