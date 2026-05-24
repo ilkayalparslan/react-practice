@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,6 +13,7 @@ import ManageBooking from './pages/ManageBooking';
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <main style={{ minHeight: '60vh' }}>
         <Routes>
