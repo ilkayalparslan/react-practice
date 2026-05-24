@@ -11,7 +11,7 @@ function Home() {
       <Hero />
       <div
         style={{
-          padding: 0,
+          padding: '0 var(--space-6)',
           maxWidth: '500px',
           margin: '0 auto',
           maxHeight: '500px',
