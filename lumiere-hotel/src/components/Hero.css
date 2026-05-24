@@ -120,4 +120,16 @@
     width: 100%;
     text-align: center;
   }
+
+  .hero-content {
+    padding: 0 var(--space-6);
+  }
+
+  .hero-title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-tagline {
+    font-size: var(--text-base);
+  }
 }
