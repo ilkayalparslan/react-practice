@@ -1,0 +1,44 @@
+.month-grid {
+  margin-bottom: var(--space-8);
+}
+
+.month-grid-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4);
+  padding: 0 var(--space-2);
+}
+
+.month-grid-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+
+.month-grid-day {
+  aspect-ratio: 1 /1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.month-grid-day:hover {
+  background: var(--color-surface);
+}
+
+.month-grid-day-empty {
+  cursor: default;
+  pointer-events: none;
+}
