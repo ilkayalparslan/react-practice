@@ -16,6 +16,7 @@ function Home() {
           margin: '0 auto',
           maxHeight: '500px',
           overflowY: 'auto',
+          marginTop: '2rem',
         }}
       >
         <h2 style={{ marginBottom: '24px' }}>Calendar grid test:</h2>
