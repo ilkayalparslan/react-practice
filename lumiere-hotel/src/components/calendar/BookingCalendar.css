@@ -1,5 +1,6 @@
 .booking-calendar {
   max-width: 500px;
+  width: 90vw;
   margin: 0 auto;
   max-height: 500px;
   overflow-y: auto;
