@@ -1,0 +1,9 @@
+.booking-calendar {
+  max-width: 500px;
+  margin: 0 auto;
+  max-height: 500px;
+  overflow-y: auto;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
