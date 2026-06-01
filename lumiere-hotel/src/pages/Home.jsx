@@ -1,12 +1,14 @@
 import Hero from '../components/Hero';
 import FeaturedRooms from '../components/FeaturedRooms';
-import BookingCalendar from '../components/calendar/BookingCalendar';
+import BookingSearch from '../components/search/BookingSearch';
 
 function Home() {
   return (
     <>
       <Hero />
-      <BookingCalendar />
+      <div style={{ padding: '40px 0' }}>
+        <BookingSearch />
+      </div>
       <FeaturedRooms />
     </>
   );
