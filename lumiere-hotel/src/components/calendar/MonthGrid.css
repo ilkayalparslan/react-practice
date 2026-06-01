@@ -34,6 +34,12 @@
     color var(--transition-fast);
 }
 
+.month-grid-day.past {
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
 .month-grid-day.selected,
 .month-grid-day.selected:hover {
   background: var(--color-accent);
@@ -44,12 +50,6 @@
 .month-grid-day.in-range {
   background: var(--color-accent-light, rgba(184, 149, 106, 0.15));
   border-radius: 0;
-}
-
-.month-grid-day.past {
-  color: var(--color-text-muted);
-  cursor: not-allowed;
-  opacity: 0.4;
 }
 
 .month-grid-day:hover {

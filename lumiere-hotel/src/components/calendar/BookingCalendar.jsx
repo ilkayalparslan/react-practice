@@ -17,6 +17,9 @@ function BookingCalendar() {
     }
 
     if (checkOut === null) {
+      if (date.getTime() === checkIn.getTime()) {
+        return;
+      }
       setCheckOut(date);
       return;
     }
