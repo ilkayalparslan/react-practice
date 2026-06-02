@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import { getMonthData } from '../../utils/calendarHelper';
 import './MonthGrid.css';
 
@@ -31,7 +31,14 @@ function MonthGrid({ monthDate, onDayClick, checkIn, checkOut }) {
           const isBeforeCheckIn =
             checkIn && !checkOut && day.getTime() < checkIn.getTime();
 
-          const isDisabled = isPast || isBeforeCheckIn;
+          const maxStayDate = checkIn ? addDays(checkIn, 30) : null;
+          const isAfterMaxStay =
+            checkIn &&
+            !checkOut &&
+            maxStayDate &&
+            day.getTime() > maxStayDate.getTime();
+
+          const isDisabled = isPast || isBeforeCheckIn || isAfterMaxStay;
 
           let className = 'month-grid-day';
           if (isSelected) className += ' selected';

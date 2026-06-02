@@ -1,32 +1,15 @@
-import { useState } from 'react';
 import WeekdayHeader from './WeekdayHeader';
 import MonthGrid from './MonthGrid';
 import './BookingCalendar.css';
 import { getMonthsList } from '../../utils/calendarHelper';
 
-function BookingCalendar() {
-  const [checkIn, setCheckIn] = useState(null);
-  const [checkOut, setCheckOut] = useState(null);
-
+function BookingCalendar({ checkIn, checkOut, dispatch }) {
   const months = getMonthsList(6);
 
   const handleDayClick = (date) => {
-    if (checkIn === null) {
-      setCheckIn(date);
-      return;
-    }
-
-    if (checkOut === null) {
-      if (date.getTime() === checkIn.getTime()) {
-        return;
-      }
-      setCheckOut(date);
-      return;
-    }
-
-    setCheckIn(date);
-    setCheckOut(null);
+    dispatch({ type: 'SELECT_DAY', payload: date });
   };
+
   return (
     <div className='booking-calendar'>
       <WeekdayHeader />

@@ -1,4 +1,11 @@
-import { startOfMonth, endOfMonth, addMonths, getDay, format } from 'date-fns';
+import {
+  startOfMonth,
+  endOfMonth,
+  addMonths,
+  getDay,
+  format,
+  differenceInDays,
+} from 'date-fns';
 
 export function getWeekDayMondayFirst(date) {
   const day = getDay(date);
@@ -36,4 +43,31 @@ export function getMonthsList(count) {
     months.push(addMonths(today, i));
   }
   return months;
+}
+
+export function formatDateRange(checkIn, checkOut) {
+  if (!checkIn && !checkOut) {
+    return 'Select dates';
+  }
+
+  if (checkIn && !checkOut) {
+    return `${format(checkIn, 'MMM d')} - Select checkout`;
+  }
+
+  const nights = getNights(checkIn, checkOut);
+  const nightLabel = nights === 1 ? '1 night' : `${nights} nights`;
+  const sameYear = checkIn.getFullYear() === checkOut.getFullYear();
+
+  if (sameYear) {
+    return `${format(checkIn, 'MMM d')} - ${format(checkOut, 'MMM d, yyyy')} - (${nightLabel})`;
+  } else {
+    return `${format(checkIn, 'MMM d, yyyy')} - ${format(checkOut, 'MMM d, yyyy')} - (${nightLabel})`;
+  }
+}
+
+export function getNights(checkIn, checkOut) {
+  if (!checkIn || !checkOut) {
+    return 0;
+  }
+  return differenceInDays(checkOut, checkIn);
 }
