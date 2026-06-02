@@ -105,3 +105,37 @@
 .booking-search-submit:disabled:hover {
   background: var(--color-accent);
 }
+
+@media (max-width: 768px) {
+  .booking-search {
+    flex-direction: column;
+  }
+
+  .booking-search-field {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    min-height: 64px;
+  }
+
+  .booking-search-guests-wrapper {
+    flex-direction: column;
+  }
+
+  .booking-search-submit {
+    padding: var(--space-4);
+    min-height: 56px;
+  }
+
+  /* Mobile'da köşe radius'ları yeniden ayarla */
+  .booking-search-field:first-child {
+    border-radius: 0;
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+
+  .booking-search-submit {
+    border-radius: 0;
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+  }
+}
