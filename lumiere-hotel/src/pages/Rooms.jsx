@@ -1,8 +1,28 @@
+import { useSearchParams } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
 import RoomCard from '../components/RoomCard';
 import { rooms } from '../data/rooms';
 import './Rooms.css';
 
 function Rooms() {
+  const [searchParams] = useSearchParams();
+
+  const checkIn = searchParams.get('checkIn');
+  const checkOut = searchParams.get('checkOut');
+  const adults = searchParams.get('adults');
+  const children = searchParams.get('children');
+
+  // Search yapılmış mı?
+  const hasSearch = checkIn && checkOut;
+
+  // Toplam misafir (string → number)
+  const totalGuests = Number(adults || 0) + Number(children || 0);
+
+  // Filtreleme: search varsa kapasiteye göre, yoksa hepsi
+  const visibleRooms = hasSearch
+    ? rooms.filter((room) => room.maxGuests >= totalGuests)
+    : rooms;
+
   return (
     <div className='rooms-page'>
       <div className='container'>
@@ -16,19 +36,46 @@ function Rooms() {
           </p>
         </header>
 
+        {/* search summary — sadece search varsa */}
+        {hasSearch && (
+          <div className='rooms-page-search-summary'>
+            <span>
+              {format(parseISO(checkIn), 'MMM d')} —{' '}
+              {format(parseISO(checkOut), 'MMM d, yyyy')}
+            </span>
+            <span> · </span>
+            <span>
+              {totalGuests} {totalGuests === 1 ? 'guest' : 'guests'}
+            </span>
+          </div>
+        )}
+
         {/* room count info */}
         <div className='rooms-page-meta'>
-          <span>{rooms.length} rooms</span>
+          <span>
+            {visibleRooms.length} {visibleRooms.length === 1 ? 'room' : 'rooms'}
+          </span>
         </div>
 
         {/* grid */}
-        <div className='rooms-grid'>
-          {rooms.map((x) => (
-            <RoomCard key={x.id} room={x} />
-          ))}
-        </div>
+        {visibleRooms.length > 0 ? (
+          <div className='rooms-grid'>
+            {visibleRooms.map((x) => (
+              <RoomCard key={x.id} room={x} />
+            ))}
+          </div>
+        ) : (
+          <div className='rooms-empty'>
+            <p>No rooms match your search for {totalGuests} guests.</p>
+            <p>
+              For larger groups, please contact us directly and we'll arrange
+              the perfect combination of rooms.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 export default Rooms;

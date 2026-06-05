@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 import { useReducer, useState, useEffect, useRef } from 'react';
 import BookingCalendar from '../calendar/BookingCalendar';
 import GuestsSelector from './GuestsSelector';
@@ -51,8 +53,9 @@ function BookingSearch() {
   const [state, dispatch] = useReducer(bookingReducer, initialState);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
-
   const guestsWrapperRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (state.checkIn && state.checkOut) {
@@ -76,12 +79,13 @@ function BookingSearch() {
   }, [isGuestsOpen]);
 
   const handleSearch = () => {
-    console.log('Search:', {
-      checkIn: state.checkIn,
-      checkOut: state.checkOut,
+    const params = new URLSearchParams({
+      checkIn: format(state.checkIn, 'yyyy-MM-dd'),
+      checkOut: format(state.checkOut, 'yyyy-MM-dd'),
       adults: state.adults,
       children: state.children,
     });
+    navigate(`/rooms?${params.toString()}`);
   };
 
   return (
