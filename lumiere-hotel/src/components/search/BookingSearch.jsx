@@ -1,56 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
-import { useReducer, useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BookingCalendar from '../calendar/BookingCalendar';
 import GuestsSelector from './GuestsSelector';
 import './BookingSearch.css';
 import { formatDateRange } from '../../utils/calendarHelper';
 import Modal from '../ui/Modal';
-
-const initialState = {
-  checkIn: null,
-  checkOut: null,
-  adults: 2,
-  children: 0,
-};
-
-function bookingReducer(state, action) {
-  switch (action.type) {
-    case 'SELECT_DAY': {
-      const date = action.payload;
-
-      if (state.checkIn === null) {
-        return { ...state, checkIn: date, checkOut: null };
-      }
-
-      if (state.checkOut === null) {
-        if (date.getTime() === state.checkIn.getTime()) {
-          return state;
-        }
-        return { ...state, checkOut: date };
-      }
-      return { ...state, checkIn: date, checkOut: null };
-    }
-
-    case 'INCREMENT_ADULTS':
-      return { ...state, adults: state.adults + 1 };
-
-    case 'DECREMENT_ADULTS':
-      return { ...state, adults: Math.max(1, state.adults - 1) };
-
-    case 'INCREMENT_CHILDREN':
-      return { ...state, children: state.children + 1 };
-
-    case 'DECREMENT_CHILDREN':
-      return { ...state, children: Math.max(0, state.children - 1) };
-
-    default:
-      return state;
-  }
-}
+import { useBookingState } from '../../hooks/useBookingState';
 
 function BookingSearch() {
-  const [state, dispatch] = useReducer(bookingReducer, initialState);
+  const { state, dispatch } = useBookingState();
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
   const guestsWrapperRef = useRef(null);
@@ -79,13 +38,7 @@ function BookingSearch() {
   }, [isGuestsOpen]);
 
   const handleSearch = () => {
-    const params = new URLSearchParams({
-      checkIn: format(state.checkIn, 'yyyy-MM-dd'),
-      checkOut: format(state.checkOut, 'yyyy-MM-dd'),
-      adults: state.adults,
-      children: state.children,
-    });
-    navigate(`/rooms?${params.toString()}`);
+    navigate(`/rooms${window.location.search}`);
   };
 
   return (
