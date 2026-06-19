@@ -1,0 +1,114 @@
+.about-page {
+  padding: var(--space-16) 0 var(--space-24);
+}
+
+.about-hero {
+  max-width: 720px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
+}
+
+.about-eyebrow {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.about-title {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.about-intro {
+  margin: 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.about-story {
+  max-width: 720px;
+  margin: 0 auto var(--space-16);
+}
+
+.about-section-title {
+  margin: 0 0 var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.about-paragraph {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.about-gallery {
+  max-width: 960px;
+  margin: 0 auto var(--space-16);
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin: 0 auto var(--space-16);
+}
+
+.about-highlight {
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.about-highlight-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.about-highlight-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.about-amenities {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-amenities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+
+.about-amenities-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.about-amenities-check {
+  color: var(--color-accent);
+  font-weight: 600;
+}

@@ -57,6 +57,17 @@ export const hotelInfo = {
     ],
   },
 
+  gallery: [
+    'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200',
+    'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200',
+    'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200',
+    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200',
+    'https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=1200',
+    'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200',
+    'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200',
+    'https://images.unsplash.com/photo-1611048267451-e6ed903d4a38?w=1200',
+  ],
+
   // === Amenities (genel hotel-wide imkanlar) ===
   amenities: [
     'Complimentary breakfast',
