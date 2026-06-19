@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
 import RoomCard from '../components/RoomCard';
 import { rooms } from '../data/rooms';
+import BookingSearch from '../components/search/BookingSearch';
 import './Rooms.css';
 
 function Rooms() {
@@ -19,9 +20,7 @@ function Rooms() {
   const totalGuests = Number(adults || 0) + Number(children || 0);
 
   // Filtreleme: search varsa kapasiteye göre, yoksa hepsi
-  const visibleRooms = hasSearch
-    ? rooms.filter((room) => room.maxGuests >= totalGuests)
-    : rooms;
+  const visibleRooms = rooms.filter((room) => room.maxGuests >= totalGuests);
 
   return (
     <div className='rooms-page'>
@@ -35,6 +34,10 @@ function Rooms() {
             with contemporary comfort. Find the space that fits your stay.
           </p>
         </header>
+
+        <div className='room-page-search'>
+          <BookingSearch />
+        </div>
 
         {/* search summary — sadece search varsa */}
         {hasSearch && (

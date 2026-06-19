@@ -1,6 +1,8 @@
 import './GuestsSelector.css';
 
-function GuestsSelector({ adults, children, dispatch }) {
+function GuestsSelector({ adults, children, dispatch, maxGuests }) {
+  const total = adults + children;
+  const isFull = maxGuests != null && total >= maxGuests;
   return (
     <div className='guests-selector'>
       <div className='guests-selector-row'>
@@ -22,6 +24,7 @@ function GuestsSelector({ adults, children, dispatch }) {
             type='button'
             className='guests-selector-btn'
             onClick={() => dispatch({ type: 'INCREMENT_ADULTS' })}
+            disabled={isFull}
           >
             +
           </button>
@@ -47,11 +50,17 @@ function GuestsSelector({ adults, children, dispatch }) {
             type='button'
             className='guests-selector-btn'
             onClick={() => dispatch({ type: 'INCREMENT_CHILDREN' })}
+            disabled={isFull}
           >
             +
           </button>
         </div>
       </div>
+      {isFull && (
+        <p className='guests-selector-max-note'>
+          Maximum {maxGuests} guests for this room.
+        </p>
+      )}
     </div>
   );
 }

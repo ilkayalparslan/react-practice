@@ -198,6 +198,10 @@
   font-weight: 500;
 }
 
+.booking-card-field-label {
+  margin-right: 5px;
+}
+
 /* media */
 @media (max-width: 968px) {
   .room-detail-content {

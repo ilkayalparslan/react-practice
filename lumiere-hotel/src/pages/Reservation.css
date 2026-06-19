@@ -1,0 +1,142 @@
+.reservation-page {
+  padding: var(--space-16) 0 var(--space-24);
+}
+
+.reservation-title {
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+.reservation-summary {
+  max-width: 600px;
+  margin: 0 auto var(--space-8);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.reservation-room-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-text-primary);
+}
+
+.reservation-room-category {
+  margin: var(--space-1) 0 var(--space-6);
+  font-size: var(--text-sm);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.reservation-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  border-top: 1px solid var(--color-border);
+}
+
+.reservation-summary-row > span:last-child {
+  text-align: right;
+  color: var(--color-text-primary);
+}
+
+.reservation-summary-total {
+  margin-top: var(--space-2);
+  border-top: 1px solid var(--color-border-strong);
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.reservation-summary-total > span:last-child {
+  color: var(--color-accent);
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reservation-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.reservation-field label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.reservation-field input {
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.reservation-submit {
+  margin-top: var(--space-2);
+  padding: var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--text-base);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.reservation-submit:hover {
+  background: var(--color-accent-hover);
+}
+
+.reservation-confirmation {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.reservation-confirmation-title {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.reservation-confirmation-text {
+  margin: 0 0 var(--space-8);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.reservation-confirmation-link {
+  color: var(--color-accent);
+  font-weight: 500;
+}

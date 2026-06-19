@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { formatPrice } from '../utils/formatPrice';
 import './RoomCard.css';
 
 function RoomCard({ room }) {
+  const { search } = useLocation();
+  const roomLink = { pathname: `/rooms/${room.slug}`, search };
   return (
     <article className='room-card'>
       {/* cover image */}
-      <Link to={`/rooms/${room.slug}`} className='room-card-image-link'>
+      <Link to={roomLink} className='room-card-image-link'>
         <div
           className='room-card-image'
           style={{ backgroundImage: `url(${room.images[0]})` }}
@@ -16,7 +18,7 @@ function RoomCard({ room }) {
       <div className='room-card-body'>
         <p className='room-card-category'>{room.category}</p>
         <h3 className='room-card-name'>
-          <Link to={`/rooms/${room.slug}`} className='room-card-name-link'>
+          <Link to={roomLink} className='room-card-name-link'>
             {room.name}
           </Link>
         </h3>
@@ -38,7 +40,7 @@ function RoomCard({ room }) {
             <span className='room-card-price-unit'>/ night</span>
           </div>
 
-          <Link to={`/rooms/${room.slug}`} className='room-card-cta'>
+          <Link to={roomLink} className='room-card-cta'>
             View Details →
           </Link>
         </div>
