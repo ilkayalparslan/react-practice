@@ -45,6 +45,22 @@ function Reservation() {
   const nights =
     checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
   const totalGuests = adults + children;
+
+  if (!checkIn || !checkOut) {
+    return (
+      <div className='reservation-page'>
+        <div className='container'>
+          <h1>Select your dates</h1>
+          <p>
+            Please Chose check-in and check-out dates for {room.name} before
+            reserving.
+          </p>
+          <Link to={`/rooms/${room.slug}`}>← Back to {room.name}</Link>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='reservation-page'>
       <div className='container'>
