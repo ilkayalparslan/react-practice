@@ -29,7 +29,7 @@ function Header() {
           </NavLink>
         </nav>
         {/* CTA  */}
-        <Link to='/reservation' className='header-cta'>
+        <Link to='/rooms' className='header-cta'>
           Book Now
         </Link>
       </div>
